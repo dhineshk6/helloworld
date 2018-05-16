@@ -1,6 +1,5 @@
 node {
     docker.withRegistry('https://hub.docker.com/', 'docker-hub-credentials') {
-    	def mvnHome
     	
     	stage('checkout'){
         
