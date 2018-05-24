@@ -20,7 +20,7 @@ node {
 			      sh ("docker push dhineshk6/test:hello-world-image")
     	}
 	stage('create deployment'){
-    	      sh 'kubectl set image deployment/hello-world-image' 
+    	      sh 'kubectl create -f deployment.yaml --validate=false' 
 	        
     	}
     	
