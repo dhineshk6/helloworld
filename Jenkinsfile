@@ -20,6 +20,7 @@ node('ubuntu') {
 	stage('create deployment'){
 	      
 		sh ("kubectl delete deployments hello-docker-deployment || true")
+		sh ("kubectl delete svc hello-docker || true")
 	      sh  ("kubectl create -f deployment.yaml --validate=false") 
 	      sh ("kubectl create -f services.yaml --validate=false")   
     	}
