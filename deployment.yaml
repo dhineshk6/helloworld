@@ -13,4 +13,4 @@ spec:
       - name: hello-docker 
         image: hello-docker:v1 
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
