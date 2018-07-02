@@ -1,7 +1,5 @@
 node {
-    docker.withRegistry('https://hub.docker.com/', 'docker-hub-credentials') {
-    	
-    	stage('checkout'){
+    stage('checkout'){
         
         git url: 'https://github.com/dhineshk6/helloworld.git'
     
@@ -12,18 +10,19 @@ node {
     
     	stage('create docker image'){
 		        sh 'docker login --username dhineshk6 --password Docker@1234'
-		        sh ("docker build -t hello-world-image .")
-		        sh ("docker tag  hello-world-image dhineshk6/test:hello-world-image")
+		        sh ("docker build -t hello-docker .")
+		        sh ("docker tag  hello-docker dhineshk6/test:hello-docker")
     	}
     	
     	stage('push docker image'){
-			      sh ("docker push dhineshk6/test:hello-world-image")
+			      sh ("docker push dhineshk6/test:hello-docker")
     	}
 	stage('create deployment'){
+	      sh 'kubectl delete deployments hello-docker-deployment'
+	       	
     	      sh 'kubectl create -f deployment.yaml --validate=false' 
-	        
+	      sh 'kubectl create -f services.yaml -- validate=false'   
     	}
-    	
-    	
-    }
-    }
+ }
+    
+    
