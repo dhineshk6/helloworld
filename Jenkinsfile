@@ -18,7 +18,7 @@ node {
 			      sh ("docker push dhineshk6/test:hello-docker")
     	}
 	stage('create deployment'){
-	      sh 'kubectl delete deployments hello-docker-deployment'
+	      sh 'kubectl delete deployments hello-docker-deployment || true'
 	       	
     	      sh 'kubectl create -f deployment.yaml --validate=false' 
 	      sh 'kubectl create -f services.yaml -- validate=false'   
