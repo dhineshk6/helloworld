@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
+  name: hello-docker-deployment
 spec:
   replicas: 2
   template:
     metadata:
       labels: 
-        app: hello-world  
+        app: hello-docker  
     spec:                      
       containers: 
-      - name: hello-world 
-        image: hello-world-image:v1 
+      - name: hello-docker 
+        image: hello-docker:v1 
         ports:
         - containerPort: 3000
