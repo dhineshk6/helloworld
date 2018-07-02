@@ -21,7 +21,7 @@ node {
 	      sh 'kubectl delete deployments hello-docker-deployment || true'
 	       	
     	      sh 'kubectl create -f deployment.yaml --validate=false' 
-	      sh 'kubectl create -f services.yaml -- validate=false'   
+	      sh 'kubectl create services.yaml -- validate=false'   
     	}
  }
     
