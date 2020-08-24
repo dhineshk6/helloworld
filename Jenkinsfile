@@ -1,4 +1,4 @@
-node('ubuntu') {
+node {
     stage('checkout'){
         
         git url: 'https://github.com/dhineshk6/helloworld.git'
