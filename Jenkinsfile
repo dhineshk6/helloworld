@@ -8,8 +8,7 @@ node {
         println commit_id
         }
     
-    	stage('create docker image'){
-		        sh 'docker login --username dhineshk6 --password Docker@1234'
+	stage('create docker image') {
 		        sh ("docker build -t hello-docker .")
 		        sh ("docker tag  hello-docker dhineshk6/test:hello-docker")
     	}
